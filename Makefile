@@ -4,6 +4,10 @@
 deploy:
 	python3 publish.py patch
 
+
+deploy_none:
+	python3 publish.py none
+
 deploy_minor:
 	python3 publish.py minor
 

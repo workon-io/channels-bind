@@ -49,21 +49,22 @@ if __name__ == "__main__":
     if has_changes:
 
         major, minor, patch = version.split(".")
+        if revision != 'none':
 
-        if revision == 'patch':
-            patch = int(patch) + 1
+            if revision == 'patch':
+                patch = int(patch) + 1
 
-        elif revision == 'minor':
-            minor = int(minor) + 1
-            patch = 0
+            elif revision == 'minor':
+                minor = int(minor) + 1
+                patch = 0
 
-        elif revision == 'major':
-            major = int(major) + 1
-            minor = 0
-            patch = 0
+            elif revision == 'major':
+                major = int(major) + 1
+                minor = 0
+                patch = 0
 
-        else:
-            patch = int(patch) + 1
+            else:
+                patch = int(patch) + 1
 
         new_version = "{}.{}.{}".format(major, minor, patch)
         print('New version: {}'.format(new_version))
