@@ -26,8 +26,12 @@ if __name__ == "__main__":
     for packages in [npm_packages, pypi_packages]:
         for package in packages:
             cwd = "packages/channels-binding-%s" % package
-            print(subprocess.check_output(
-                ["pandoc", "README.rst", "-s", "-o", "README.md"]))
+            try:
+                print(subprocess.check_output(
+                    ["pandoc", "README.rst", "-s", "-o", "README.md"]))
+            except Exception as e:
+                print(e)
+
             print(subprocess.check_output(["cp", "LICENSE", cwd]))
             print(subprocess.check_output(["cp", "README.rst", cwd]))
             print(subprocess.check_output(["cp", "README.md", cwd]))
